@@ -82,7 +82,6 @@ syntax.richtext(
 )
 
 console.log(syntax.plaintext())
-
 // +--- output: ---------------------------
 // | /* sample comment */\n
 // | function foo (bar, quux) {\n
@@ -91,7 +90,6 @@ console.log(syntax.plaintext())
 // +---------------------------------------
 
 console.log(require("util").inspect(syntax.markup(), { depth: null }))
-
 // +--- output: ---------------------------
 // | { anchor:  { '1': 62 },
 // |   marker:  [ [ 21, 33 ] ],
@@ -101,7 +99,6 @@ console.log(require("util").inspect(syntax.markup(), { depth: null }))
 // +---------------------------------------
 
 console.log(syntax.html())
-
 // +--- output: ---------------------------
 // | <span class="comment">/* sample comment */</span>\n
 // | <span class="keyword"><span class="marker">function</span></span><span class="marker"> foo</span> (bar, quux) {\n
