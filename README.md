@@ -63,6 +63,53 @@ $ npm install syntax
 $ bower install syntax
 ```
 
+Example
+-------
+
+```js
+import Syntax from "syntax"
+
+let syntax = new Syntax({
+    language: "javascript",
+    cssPrefix: ""
+})
+
+syntax.richtext(
+    "/* sample comment */\n" +
+    "={function foo}= (bar, quux) {\n" +
+    "    return 42 =(1)=\n" +
+    "}\n"
+)
+
+console.log(syntax.plaintext())
+
+// +--- output: ---------------------------
+// | /* sample comment */\n
+// | function foo (bar, quux) {\n
+// |     return 42 \n
+// | }\n
+// +---------------------------------------
+
+console.log(require("util").inspect(syntax.markup(), { depth: null }))
+
+// +--- output: ---------------------------
+// | { anchor:  { '1': 62 },
+// |   marker:  [ [ 21, 33 ] ],
+// |   comment: [ [ 0, 20 ] ],
+// |   keyword: [ [ 21, 29 ], [ 52, 58 ] ],
+// |   literal: [ [ 59, 61 ] ] }
+// +---------------------------------------
+
+console.log(syntax.html())
+
+// +--- output: ---------------------------
+// | <span class="comment">/* sample comment */</span>\n
+// | <span class="keyword"><span class="marker">function</span></span><span class="marker"> foo</span> (bar, quux) {\n
+// |     <span class="keyword">return</span> <span class="literal">42</span> <span class="anchor anchor-1"></span>\n
+// | }\n
+// +---------------------------------------
+```
+
 Application Programming Interface (API)
 ---------------------------------------
 
