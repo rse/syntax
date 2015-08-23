@@ -4,13 +4,13 @@ Syntax
 
 Unobtrusive Syntax Highlighting Library
 
+<img src="sample/screenshot.png" alt=""/>
+
 <p/>
 <img src="https://nodei.co/npm/syntax.png?downloads=true&stars=true" alt=""/>
 
 <p/>
 <img src="https://david-dm.org/rse/syntax.png" alt=""/>
-
-<img src="sample/screenshot.png" alt=""/>
 
 About
 -----
