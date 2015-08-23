@@ -141,8 +141,8 @@ export default class Syntax {
             && language.match(/^(?:auto|none)$/) === null) {
             let found = Highlight.getLanguage(language)
             if (!found) {
-                /* global process: true */
-                if (process.browser)
+                /* global global: true */
+                if (typeof global.window === "object")
                     throw new Error("cannot auto-load new languages in browser environment")
                 let obj
                 try {
