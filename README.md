@@ -125,6 +125,9 @@ Application Programming Interface (API)
   Create a new syntax highlighting instance with
   optional configuration settings.
 
+- Class Method: `Syntax.version(): { major: Number, minor: Number, micro: Number, date: Number }`:<br/>
+  Return the *Sugar* library version. The date is in numeric format `YYYYMMDD`.
+
 - Method: `Syntax#config(config?: Object): Syntax`<br/>
   Set configuration settings. The available configuration options are:
 

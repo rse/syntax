@@ -67,6 +67,21 @@ const SEQUENCE    = Symbol("SEQUENCE")
 
 /*  exported API class  */
 export default class Syntax {
+    /*  return the library version  */
+    static version () {
+        /* global $major: false */
+        /* global $minor: false */
+        /* global $micro: false */
+        /* global $date:  false */
+        return {
+            major: $major,
+            minor: $minor,
+            micro: $micro,
+            date:  $date
+        }
+    }
+
+    /*  construct the PAI class  */
     constructor (config = {}) {
         /*  predefine valid options  */
         this[CONFIG] = {
