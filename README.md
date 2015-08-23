@@ -14,13 +14,13 @@ About
 -----
 
 Syntax is JavaScript library (for use in Node.js and Browser
-environments) to apply Syntax Highlighting to a piece of input text. It
-is based on four major design aspects:
+environments) to apply Syntax Highlighting to a piece of input text --
+usually source code. Syntax is based on four major design aspects:
 
 - **Good Language Support**:
   The language-specific determination of comments, keywords and
   literals should be a reasonable one. As syntax highlighting
-  is a science of its own, Syntax is based on the excellent
+  is a science of its own, Syntax under the hood uses the excellent
   [Highlight.js](https://highlightjs.org/) library.
 
 - **Unobtrusive Syntax Highlighting**:
@@ -29,24 +29,26 @@ is based on four major design aspects:
   that syntax highlighting has to be as unobstrusive as possible and
   hence should highlight comments, keywords, and literals only. As a
   consequence, Syntax intentionally(!) reduces the syntax highlighting
-  of [Highlight.js](https://highlightjs.org/) to exactly these three
-  kinds of syntactical elements.
+  of the underlying [Highlight.js](https://highlightjs.org/) to just
+  these three kinds of syntactical elements.
 
 - **Anchors and Markers**:
   In technical documentation it is regularily necessary to mark
   arbitrary pieces of code and interspice reference anchors.
-  Unfortunately, whatever syntax is used for marking and anchoring,
-  this always conflicts with the language-dependent syntax highlighting
-  as the marking and anchoring renders the source code invalid. Syntax
-  resolves this problem by first reducing enriched text to plain text
-  and reapplying the marking and anchoring during output generation.
+  Unfortunately, whatever syntax is used for marking and anchors, this
+  always conflicts with the language-dependent syntax highlighting
+  as the marking and anchors renders the source code invalid. Syntax
+  resolves this problem by first reducing the (rich) input text to plain
+  text (by removing markings and anchors) and reapplying the markings
+  and anchors during output generation.
 
 - **Arbitrary Output Formats**:
-  Usually the supported XML/HTML output format is sufficient, but
-  sometimes one also wants to support other formats and for this one
-  needs the precise offset information for anchors, markings, comments,
-  keywords and literals. Syntax supports this by internally using such
-  an offset based markup information and also exposing it in the API.
+  Usually, having XML/HTML output format is sufficient, but sometimes
+  one also wants to support other formats and for this one needs the
+  precise offset information for anchors, markings, comments, keywords
+  and literals. Syntax supports this by internally using such an offset
+  based markup information and also exposing it in the API for external
+  consumption.
 
 Installation
 ------------
@@ -117,7 +119,35 @@ Application Programming Interface (API)
   optional configuration settings.
 
 - Method: `Syntax#config(config?: Object): Syntax`<br/>
-  Set configuration settings.
+  Set configuration settings. The available configuration options are:
+
+   - `language` (default: `"auto"`):<br/>
+     Control the syntax highlighting of comments, keywords and literals.
+     By default, the language is guessed. See below for recognized
+     language identifiers. Set to `"none"` to enforce no syntax
+     highlighting of comments, keywords and literals at all (then
+     just markings and anchors are recognized).
+
+   - `cssPrefix` (default: `"syntax-"`):<br/>
+     The CSS class prefix used in the HTML output.
+
+   - `tabReplace` (default: `"    "`):<br/>
+     The string TAB characters are replaced to in the output.
+
+   - `newlineReplace` (default: `"\n"`):<br/>
+     The string newlines (`\r?\n`) are replaced to in the output.
+
+   - `regexAnchorOpen` (default: `"=\\("`):<br/>
+     The regular expression to recognize the opening of anchors.
+
+   - `regexAnchorClose` (default: `"\\)="`):<br/>
+     The regular expression to recognize the closing of anchors.
+
+   - `regexMarkerOpen` (default: `"=\\{"`):<br/>
+     The regular expression to recognize the opening of markings.
+
+   - `regexMarkerClose` (default: `"\\}="`):<br/>
+     The regular expression to recognize the closing of markings.
 
 - Method: `Syntax#richtext(input: String): Syntax`<br/>
   Set the rich input text to process.
@@ -132,6 +162,24 @@ Application Programming Interface (API)
 - Method: `Syntax#html(): String`<br/>
   Apply the output markup information onto the output plain text and
   render the result as XML/HTML based on interweaved `<span>` tags.
+
+Language Support
+----------------
+
+By default, Syntax supports the following languages (with the
+`language` configuration option identifiers in parenthesis):
+
+1. Web Technology Languages: XML/HTML (`xml`), CSS (`css`), LESS
+   (`less`), HTTP (`http`), JSON (`json`), INI `ini`, MarkDown (`markdown`),
+   SQL (`sql`).
+
+2. Progamming Languages: C/C++ (`cpp`), Objective-C (`objectivec`),
+   Swift (`swift`), C# (`cs`, `csharp`), F# (`fsharp`), Go (`go`), Java
+   (`java`), Groovy (`groovy`), Scala (`scala`), JavaScript (`js`,
+   `javascript`), TypeScript (`typescript`), PHP (`php`), Perl (`perl`),
+   Python (`python`), Ruby (`ruby`).
+
+3. Shell Languages: Bash (`bash`), PowerShell (`powershell`).
 
 Implementation Notice
 ---------------------
