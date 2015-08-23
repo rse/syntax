@@ -246,10 +246,17 @@ export default class Syntax {
     }
 
     /*  retrieve plain text  */
-    plaintext () {
-        if (arguments.length !== 0)
-            throw new Error("invalid number of arguments (0 expected)")
-        return this[PLAINTEXT]
+    plaintext (plaintext) {
+        if (arguments.length > 1)
+            throw new Error("invalid number of arguments (0 or 1 expected)")
+        if (arguments.length === 1) {
+            if (typeof plaintext !== "string")
+                throw new Error("invalid plain text argument (string expected)")
+            this[PLAINTEXT] = plaintext
+            return this
+        }
+        else
+            return this[PLAINTEXT]
     }
 
     /*  set/get markup information  */
