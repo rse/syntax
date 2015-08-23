@@ -138,16 +138,24 @@ Application Programming Interface (API)
      The string newlines (`\r?\n`) are replaced to in the output.
 
    - `regexAnchorOpen` (default: `"=\\("`):<br/>
-     The regular expression to recognize the opening of anchors.
+     The regular expression (as a string) to recognize the opening of anchors.
+     Remember to extra-escape the special characters and to pass this as a
+     string, as Syntax internally has to assemble the regular expressions.
 
    - `regexAnchorClose` (default: `"\\)="`):<br/>
-     The regular expression to recognize the closing of anchors.
+     The regular expression (as a string) to recognize the closing of anchors.
+     Remember to extra-escape the special characters and to pass this as a
+     string, as Syntax internally has to assemble the regular expressions.
 
    - `regexMarkerOpen` (default: `"=\\{"`):<br/>
-     The regular expression to recognize the opening of markings.
+     The regular expression (as a string) to recognize the opening of markings.
+     Remember to extra-escape the special characters and to pass this as a
+     string, as Syntax internally has to assemble the regular expressions.
 
    - `regexMarkerClose` (default: `"\\}="`):<br/>
-     The regular expression to recognize the closing of markings.
+     The regular expression (as a string) to recognize the closing of markings.
+     Remember to extra-escape the special characters and to pass this as a
+     string, as Syntax internally has to assemble the regular expressions.
 
 - Method: `Syntax#richtext(input: String): Syntax`<br/>
   Set the rich input text to process.
