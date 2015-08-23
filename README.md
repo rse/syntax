@@ -15,14 +15,14 @@ Unobtrusive Syntax Highlighting Library
 About
 -----
 
-Syntax is JavaScript library (for use in Node.js and Browser
+*Syntax* is JavaScript library (for use in Node.js and Browser
 environments) to apply Syntax Highlighting to a piece of input text --
-usually source code. Syntax is based on four major design aspects:
+usually source code. *Syntax* is based on four major design aspects:
 
 - **Good Language Support**:
   The language-specific determination of comments, keywords and
   literals should be a reasonable one. As syntax highlighting
-  is a science of its own, Syntax under the hood uses the excellent
+  is a science of its own, *Syntax* under the hood uses the excellent
   [Highlight.js](https://highlightjs.org/) library.
 
 - **Unobtrusive Syntax Highlighting**:
@@ -30,7 +30,7 @@ usually source code. Syntax is based on four major design aspects:
   strict opinion when it comes to source code. One of his opinions is
   that syntax highlighting has to be as unobstrusive as possible and
   hence should highlight comments, keywords, and literals only. As a
-  consequence, Syntax intentionally(!) reduces the syntax highlighting
+  consequence, *Syntax* intentionally(!) reduces the syntax highlighting
   of the underlying [Highlight.js](https://highlightjs.org/) to just
   these three kinds of syntactical elements.
 
@@ -39,7 +39,7 @@ usually source code. Syntax is based on four major design aspects:
   arbitrary pieces of code and interspice reference anchors.
   Unfortunately, whatever syntax is used for marking and anchors, this
   always conflicts with the language-dependent syntax highlighting
-  as the marking and anchors renders the source code invalid. Syntax
+  as the marking and anchors renders the source code invalid. *Syntax*
   resolves this problem by first reducing the (rich) input text to plain
   text (by removing markings and anchors) and reapplying the markings
   and anchors during output generation.
@@ -48,7 +48,7 @@ usually source code. Syntax is based on four major design aspects:
   Usually, having XML/HTML output format is sufficient, but sometimes
   one also wants to support other formats and for this one needs the
   precise offset information for anchors, markings, comments, keywords
-  and literals. Syntax supports this by internally using such an offset
+  and literals. *Syntax* supports this by internally using such an offset
   based markup information and also exposing it in the API for external
   consumption.
 
@@ -142,22 +142,22 @@ Application Programming Interface (API)
    - `regexAnchorOpen` (default: `"=\\("`):<br/>
      The regular expression (as a string) to recognize the opening of anchors.
      Remember to extra-escape the special characters and to pass this as a
-     string, as Syntax internally has to assemble the regular expressions.
+     string, as *Syntax* internally has to assemble the regular expressions.
 
    - `regexAnchorClose` (default: `"\\)="`):<br/>
      The regular expression (as a string) to recognize the closing of anchors.
      Remember to extra-escape the special characters and to pass this as a
-     string, as Syntax internally has to assemble the regular expressions.
+     string, as *Syntax* internally has to assemble the regular expressions.
 
    - `regexMarkerOpen` (default: `"=\\{"`):<br/>
      The regular expression (as a string) to recognize the opening of markings.
      Remember to extra-escape the special characters and to pass this as a
-     string, as Syntax internally has to assemble the regular expressions.
+     string, as *Syntax* internally has to assemble the regular expressions.
 
    - `regexMarkerClose` (default: `"\\}="`):<br/>
      The regular expression (as a string) to recognize the closing of markings.
      Remember to extra-escape the special characters and to pass this as a
-     string, as Syntax internally has to assemble the regular expressions.
+     string, as *Syntax* internally has to assemble the regular expressions.
 
 - Method: `Syntax#richtext(input: String): Syntax`<br/>
   Set the rich input text to process.
@@ -209,7 +209,7 @@ Application Programming Interface (API)
 Language Support
 ----------------
 
-By default, Syntax supports the following major languages (with the
+By default, *Syntax* supports the following major languages (with the
 `language` configuration option identifiers in parenthesis):
 
 1. Web Technology Languages: XML/HTML (`xml`), CSS (`css`), LESS
@@ -225,7 +225,7 @@ By default, Syntax supports the following major languages (with the
 3. Shell Languages: Bash (`bash`), PowerShell (`powershell`).
 
 Those languages are pre-loaded in Node.js and bundled
-with Syntax in the browser. In Node.js more languages
+with *Syntax* in the browser. In Node.js more languages
 can be auto-loaded by just setting the `language`
 configuration to its official identifier. See [Highlight.js'
 sources](https://github.com/isagalaev/highlight.js/tree/master/src/langu
@@ -237,7 +237,7 @@ languages youself and call `hljs.registerLanguage()` yourself.
 Implementation Notice
 ---------------------
 
-Although Syntax is written in ECMAScript 6, it is transpiled to ECMAScript
+Although *Syntax* is written in ECMAScript 6, it is transpiled to ECMAScript
 5 and this way runs in really all(!) current (as of 2015) JavaScript
 environments, of course.
 
