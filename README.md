@@ -70,6 +70,8 @@ $ bower install syntax
 Example
 -------
 
+The following is an example of *Syntax* in the Node.js environment:
+
 ```js
 import Syntax from "syntax"
 
@@ -110,6 +112,9 @@ console.log(syntax.html())
 // | }\n
 // +---------------------------------------
 ```
+
+For an example of *Syntax* in the Browser environment, see
+[the included Sample project](sample/).
 
 Application Programming Interface (API)
 ---------------------------------------
