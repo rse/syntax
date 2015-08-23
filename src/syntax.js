@@ -107,6 +107,9 @@ export default class Syntax {
         if (typeof config !== "object")
             throw new Error("invalid configuration argument (object expected)")
 
+        /*  remember old language  */
+        let languageOld = this[CONFIG].language
+
         /*  iterate over all configuration options  */
         Object.keys(config).forEach((option) => {
             /*  sanity check their validity  */
@@ -116,6 +119,27 @@ export default class Syntax {
             /*  override default value  */
             this[CONFIG][option] = config[option]
         })
+
+        /*  try to auto-load new language  */
+        let language = this[CONFIG].language
+        if (   language !== languageOld
+            && language.match(/^(?:auto|none)$/) === null) {
+            let found = Highlight.getLanguage(language)
+            if (!found) {
+                /* global process: true */
+                if (process.browser)
+                    throw new Error("cannot auto-load new languages in browser environment")
+                let obj
+                try {
+                    obj = require("highlight.js/lib/languages/" + language)
+                } catch (ex) {
+                }
+                if (!obj)
+                    throw new Error(`failed to load language "${language}"`)
+                Highlight.registerLanguage(language, obj)
+            }
+        }
+
         return this
     }
 
