@@ -228,8 +228,8 @@ Those languages are pre-loaded in Node.js and bundled
 with *Syntax* in the browser. In Node.js more languages
 can be auto-loaded by just setting the `language`
 configuration to its official identifier. See [Highlight.js'
-sources](https://github.com/isagalaev/highlight.js/tree/master/src/langu
-ages) for the identifiers (it is just the filename without the `.js`
+sources](https://github.com/isagalaev/highlight.js/tree/master/src/languages)
+for the identifiers (it is just the filename without the `.js`
 extension). In browser environments, auto-loading additional languages
 obviously does not work. There you have to bundle the additional
 languages youself and call `hljs.registerLanguage()` yourself.
