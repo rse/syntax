@@ -1,0 +1,65 @@
+
+@import "lib/normalize.css";
+
+@import "lib/TypoPRO-OpenSans-Regular.css";
+@import "lib/TypoPRO-OpenSans-Bold.css";
+
+@import "lib/TypoPRO-DejaVuSansMono-Regular.css";
+@import "lib/TypoPRO-DejaVuSansMono-Bold.css";
+@import "lib/TypoPRO-DejaVuSansMono-Oblique.css";
+@import "lib/TypoPRO-DejaVuSansMono-BoldOblique.css";
+
+@import "lib/CombiNumeralsLtd.css";
+
+/*
+ *  Syntax unrelated
+ */
+
+body {
+    font-family: "TypoPRO Open Sans";
+    font-size: 12pt;
+    margin: 20px;
+    background-color: #ffffff;
+}
+
+.syntax {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #c0c0c0;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+    -webkit-box-shadow: 0px 0px 4px 0px #e0e0e0;
+    box-shadow: 0px 0px 4px 0px #e0e0e0;
+}
+
+/*
+ *  Syntax related
+ */
+
+.syntax {
+    background-color: #ffffff;
+    font-family: "TypoPRO DejaVu Sans Mono";
+    white-space: pre;
+    line-height: 1.15;
+}
+
+.syntax .syntax-marker {
+    border-top: 1px solid #f0f0d0;
+    background-color: #ffffe0;
+    border-bottom: 1px solid #f0f0d0;
+}
+.syntax .syntax-anchor {
+    color: #cc3333;
+}
+.syntax .syntax-comment {
+    font-style: italic;
+    color: #999999;
+}
+.syntax .syntax-keyword {
+    font-weight: bold;
+    color: #6699cc;
+}
+.syntax .syntax-literal {
+    color: #c08030;
+}
+

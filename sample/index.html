@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Syntax Sample</title>
+        <script src="lib/jquery.js" type="text/javascript"></script>
+        <script src="lib/syntax.js" type="text/javascript"></script>
+        <script src="index.js" type="text/javascript"></script>
+        <link href="index.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <h1>Syntax Sample</h1>
+
+        <p>
+            This is a just small sample for <b>Syntax</b>.
+        </p>
+
+        <div data-syntax="javascript">
+/* sample comment */
+const foo = (arg1, arg2=(1)=, arg3) => {
+    var foo  = 42
+={    var bar  = "baz"    }= =(2)=
+    var quux = /foo\/bar"quux"/
+    return foo + bar + quux
+}
+        </div>
+
+        <p>
+            It should be rendered like (screenshot made in Chrome):
+        </p>
+
+        <img src="screenshot.png" width="500"/>
+    </body>
+</html>
