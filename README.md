@@ -10,6 +10,8 @@ Unobtrusive Syntax Highlighting Library
 <p/>
 <img src="https://david-dm.org/rse/syntax.png" alt=""/>
 
+<img src="sample/screenshot.png" alt=""/>
+
 About
 -----
 
