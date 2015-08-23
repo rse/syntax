@@ -161,11 +161,44 @@ Application Programming Interface (API)
   Set the rich input text to process.
 
 - Method: `Syntax#plaintext(): String`<br/>
-  Get the plain output text after removing explicit markers and anchors.
+  Method: `Syntax#plaintext(plaintext: String): Syntax`<br/>
+  Get or set the plain (output) text (the rich text after removing explicit markers and anchors).
+  The plain text is updated when `richtext()` is called. If using a custom
+  markup information it can be also set manually.
 
 - Method: `Syntax#markup(): Markup`<br/>
-- Method: `Syntax#markup(markup?: Markup): Syntax`<br/>
-  Get or set the markup information.
+  Method: `Syntax#markup(markup: Markup): Syntax`<br/>
+  Get or set the markup information. The markup information is updated
+  when `richtext()` is called. But a custom markup information can
+  be provided manually, too. The format of the markup information is:
+
+    ```
+    {
+        anchor:  {
+            <reference: String>: <position: Number>
+            :
+        },
+        marker: [
+            [ <start-position: Number>, <end-position: Number> ]
+            :
+        ],
+        comment: [
+            [ <start-position: Number>, <end-position: Number> ]
+            :
+        ],
+        keyword: [
+            [ <start-position: Number>, <end-position: Number> ]
+            :
+        ],
+        literal: [
+            [ <start-position: Number>, <end-position: Number> ]
+            :
+        ]
+    }
+    ```
+
+  The positions are zero-based and end positions are at the first
+  character not included in the range.
 
 - Method: `Syntax#html(): String`<br/>
   Apply the output markup information onto the output plain text and
