@@ -119,6 +119,14 @@ For an example of *Syntax* in the Browser environment, see
 Application Programming Interface (API)
 ---------------------------------------
 
+### Importing
+
+- `import Syntax from "syntax"`<br/>
+   Import OSet (ECMAScript 6 variant).
+
+- `var Syntax = require("syntax").default`<br/>
+   Import OSet (CommonJS variant).
+
 ### Class `Syntax`
 
 - Constructor: `Syntax(config?: Object): Syntax`<br/>
