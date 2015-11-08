@@ -28,7 +28,7 @@
 /* global require: false */
 /* jshint -W030: false */
 
-var Syntax = require("../lib/syntax.node.js")
+var Syntax = require("../lib/syntax.node.js").default
 
 describe("Syntax Library", function () {
     it("should expose its official API", function () {
