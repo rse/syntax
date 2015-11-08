@@ -4,7 +4,7 @@
     "dependencies": {
         "normalize.css": "3.0.3",
         "jquery":        "2.1.4",
-        "typopro-web":   "3.2.4",
+        "typopro-web":   "3.4.1",
         "combinumerals": "1.0.2",
         "syntax":        "master"
     }
