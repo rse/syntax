@@ -66,7 +66,7 @@ const MARKUP      = Symbol("MARKUP")
 const SEQUENCE    = Symbol("SEQUENCE")
 
 /*  exported API class  */
-export default class Syntax {
+class Syntax {
     /*  return the library version  */
     static version () {
         /* global $major: false */
@@ -377,7 +377,7 @@ export default class Syntax {
 
         /*  spice HTML markup into the plain text  */
         let text = this[PLAINTEXT]
-        let html = ""
+        let markup = ""
         let posLast = 0
         this[SEQUENCE].forEach((item) => {
             let [ pos, kind, type, val ] = item
@@ -389,12 +389,16 @@ export default class Syntax {
                 tag = `<span class="${this[CONFIG].cssPrefix}${type}">`
             else
                 tag = "</span>"
-            html += renderText(text.substring(posLast, pos)) + tag
+            markup += renderText(text.substring(posLast, pos)) + tag
             posLast = pos
         })
-        html += renderText(text.substring(posLast))
+        markup += renderText(text.substring(posLast))
 
-        return html
+        return markup
     }
 }
+
+/*  export the traditional way for interoperability reasons
+    (as Babel would export an object with a 'default' field)  */
+module.exports = Syntax
 
