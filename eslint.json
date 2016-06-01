@@ -9,6 +9,7 @@
         "jasmine": false
     },
     "globals": {
+        "Symbol": true,
         "expect": true
     },
     "rules": {
