@@ -1,6 +1,6 @@
 {
     "name":        "syntax",
-    "version":     "1.2.2",
+    "version":     "1.2.3",
     "description": "Unobtrusive Syntax Highlighting",
     "keywords":    [ "code", "syntax", "highlighting", "keyword", "literal" ],
     "main":        "lib/syntax.node.js",
