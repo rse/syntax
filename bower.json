@@ -1,6 +1,6 @@
 {
     "name":        "syntax",
-    "version":     "1.2.1",
+    "version":     "1.2.2",
     "description": "Unobtrusive Syntax Highlighting",
     "main":        "lib/syntax.browser.js",
     "homepage":    "https://github.com/rse/syntax",
