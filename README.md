@@ -122,10 +122,10 @@ Application Programming Interface (API)
 ### Importing
 
 - `import Syntax from "syntax"`<br/>
-   Import OSet (ECMAScript 6 variant).
+   Import Syntax (ECMAScript 6 variant).
 
 - `var Syntax = require("syntax").default`<br/>
-   Import OSet (CommonJS variant).
+   Import Syntax (CommonJS variant).
 
 ### Class `Syntax`
 
@@ -260,7 +260,7 @@ environments, of course.
 License
 -------
 
-Copyright &copy; 2015 Ralf S. Engelschall (http://engelschall.com/)
+Copyright &copy; 2015-2016 Ralf S. Engelschall (http://engelschall.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
