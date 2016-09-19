@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                         ]}],
                         [ "babelify", {
                             presets: [ "es2015" ],
-                            plugins: [ [ "transform-runtime", { "polyfill": false, "regenerator": true } ] ]
+                            plugins: [ [ "transform-runtime", { "polyfill": true, "regenerator": false } ] ]
                         } ]
                     ],
                     plugin: [
@@ -99,7 +99,7 @@ module.exports = function (grunt) {
                         ]}],
                         [ "babelify", {
                             presets: [ "es2015" ],
-                            plugins: [ [ "transform-runtime", { "polyfill": false, "regenerator": true } ] ]
+                            plugins: [ [ "transform-runtime", { "polyfill": true, "regenerator": false } ] ]
                         } ]
                     ],
                     plugin: [
