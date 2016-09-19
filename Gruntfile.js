@@ -69,7 +69,10 @@ module.exports = function (grunt) {
                             { from: /\$micro/g, to: "<%= version.micro %>" },
                             { from: /\$date/g,  to: "<%= version.date  %>" }
                         ]}],
-                        [ "babelify", { presets: [ "es2015" ] } ]
+                        [ "babelify", {
+                            presets: [ "es2015" ],
+                            plugins: [ [ "transform-runtime", { "polyfill": false, "regenerator": true } ] ]
+                        } ]
                     ],
                     plugin: [
                         [ "minifyify" ],
@@ -94,7 +97,10 @@ module.exports = function (grunt) {
                             { from: /\$micro/g, to: "<%= version.micro %>" },
                             { from: /\$date/g,  to: "<%= version.date  %>" }
                         ]}],
-                        [ "babelify", { presets: [ "es2015" ] } ]
+                        [ "babelify", {
+                            presets: [ "es2015" ],
+                            plugins: [ [ "transform-runtime", { "polyfill": false, "regenerator": true } ] ]
+                        } ]
                     ],
                     plugin: [
                         [ "browserify-derequire" ],
