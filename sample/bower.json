@@ -2,8 +2,8 @@
     "name": "sample",
     "version": "0.0.0",
     "dependencies": {
-        "normalize.css": "4.2.0",
-        "jquery":        "3.1.0",
+        "normalize.css": "5.0.0",
+        "jquery":        "3.1.1",
         "typopro-web":   "3.4.9",
         "combinumerals": "1.0.2",
         "syntax":        "master"
