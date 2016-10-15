@@ -17,7 +17,7 @@
     "homepage": "https://github.com/rse/syntax",
     "bugs":     "https://github.com/rse/syntax/issues",
     "dependencies": {
-        "tokenizr":                       "~1.1.0",
+        "tokenizr":                       "~1.1.1",
         "highlight.js":                   "~9.7.0",
         "sax":                            "~1.2.1"
     },

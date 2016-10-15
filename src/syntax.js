@@ -197,14 +197,14 @@ class Syntax {
         this[PLAINTEXT] = ""
         let pos = 0
         lexer.tokens().forEach((token) => {
-            if (token.type === "anchor")
+            if (token.isA("anchor"))
                 this[MARKUP].anchor[token.value] = pos
-            else if (token.type === "marker") {
+            else if (token.isA("marker")) {
                 this[MARKUP].marker.push([ pos, pos + token.value.length ])
                 this[PLAINTEXT] += token.value
                 pos += token.value.length
             }
-            else {
+            else if (token.isA("text")) {
                 this[PLAINTEXT] += token.value
                 pos += token.value.length
             }
