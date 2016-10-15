@@ -202,7 +202,7 @@ class Syntax {
             else if (token.type === "marker") {
                 this[MARKUP].marker.push([ pos, pos + token.value.length ])
                 this[PLAINTEXT] += token.value
-                pos  += token.value.length
+                pos += token.value.length
             }
             else {
                 this[PLAINTEXT] += token.value
