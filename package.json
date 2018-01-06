@@ -4,6 +4,7 @@
     "description": "Unobtrusive Syntax Highlighting",
     "keywords":    [ "code", "syntax", "highlighting", "keyword", "literal" ],
     "main":        "lib/syntax.node.js",
+    "browser":     "lib/syntax.browser.js",
     "repository": {
         "type": "git",
         "url":  "https://github.com/rse/syntax.git"
