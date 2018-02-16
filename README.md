@@ -237,17 +237,21 @@ Language Support
 By default, *Syntax* supports the following major languages (with the
 `language` configuration option identifiers in parenthesis):
 
-1. Web Technology Languages: XML/HTML (`xml`), CSS (`css`), LESS
-   (`less`), HTTP (`http`), JSON (`json`), INI `ini`, MarkDown (`markdown`),
-   SQL (`sql`).
+1. Web Languages: XML/HTML (`xml`), CSS (`css`), LESS
+   (`less`), HTTP (`http`).
 
-2. Progamming Languages: C/C++ (`cpp`), Objective-C (`objectivec`),
+2. Configuration Languages: JSON (`json`), YAML `yaml`, INI `ini`.
+
+3. Progamming Languages: C/C++ (`cpp`), Objective-C (`objectivec`),
    Swift (`swift`), C# (`cs`, `csharp`), F# (`fsharp`), Go (`go`), Java
-   (`java`), Groovy (`groovy`), Scala (`scala`), JavaScript (`js`,
+   (`java`), Kotlin (`kotlin`), Groovy (`groovy`), Scala (`scala`), JavaScript (`js`,
    `javascript`), TypeScript (`typescript`), PHP (`php`), Perl (`perl`),
    Python (`python`), Ruby (`ruby`).
 
-3. Shell Languages: Bash (`bash`), PowerShell (`powershell`).
+4. Shell Languages: Bourne Shell (`shell`), Bash (`bash`), PowerShell
+   (`powershell`), Makefile (`makefile`).
+
+5. Other Languages: SQL (`sql`), MarkDown (`markdown`), Diff (`diff`).
 
 Those languages are pre-loaded in Node.js and bundled
 with *Syntax* in the browser. In Node.js more languages

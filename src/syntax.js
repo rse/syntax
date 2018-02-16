@@ -32,12 +32,13 @@ Highlight.registerLanguage("xml",        require("highlight.js/lib/languages/xml
 Highlight.registerLanguage("css",        require("highlight.js/lib/languages/css"))
 Highlight.registerLanguage("less",       require("highlight.js/lib/languages/less"))
 Highlight.registerLanguage("http",       require("highlight.js/lib/languages/http"))
-Highlight.registerLanguage("json",       require("highlight.js/lib/languages/json"))
-Highlight.registerLanguage("ini",        require("highlight.js/lib/languages/ini"))
-Highlight.registerLanguage("markdown",   require("highlight.js/lib/languages/markdown"))
-Highlight.registerLanguage("sql",        require("highlight.js/lib/languages/sql"))
 
-/*  load language support (Major Languages)  */
+/*  load language support (Configuration)  */
+Highlight.registerLanguage("json",       require("highlight.js/lib/languages/json"))
+Highlight.registerLanguage("yaml",       require("highlight.js/lib/languages/yaml"))
+Highlight.registerLanguage("ini",        require("highlight.js/lib/languages/ini"))
+
+/*  load language support (Programming Languages)  */
 Highlight.registerLanguage("cpp",        require("highlight.js/lib/languages/cpp"))
 Highlight.registerLanguage("objectivec", require("highlight.js/lib/languages/objectivec"))
 Highlight.registerLanguage("swift",      require("highlight.js/lib/languages/swift"))
@@ -45,6 +46,7 @@ Highlight.registerLanguage("cs",         require("highlight.js/lib/languages/cs"
 Highlight.registerLanguage("fsharp",     require("highlight.js/lib/languages/fsharp"))
 Highlight.registerLanguage("go",         require("highlight.js/lib/languages/go"))
 Highlight.registerLanguage("java",       require("highlight.js/lib/languages/java"))
+Highlight.registerLanguage("kotlin",     require("highlight.js/lib/languages/kotlin"))
 Highlight.registerLanguage("groovy",     require("highlight.js/lib/languages/groovy"))
 Highlight.registerLanguage("scala",      require("highlight.js/lib/languages/scala"))
 Highlight.registerLanguage("javascript", require("highlight.js/lib/languages/javascript"))
@@ -55,8 +57,15 @@ Highlight.registerLanguage("python",     require("highlight.js/lib/languages/pyt
 Highlight.registerLanguage("ruby",       require("highlight.js/lib/languages/ruby"))
 
 /*  load language support (Shell)  */
+Highlight.registerLanguage("shell",      require("highlight.js/lib/languages/shell"))
 Highlight.registerLanguage("bash",       require("highlight.js/lib/languages/bash"))
 Highlight.registerLanguage("powershell", require("highlight.js/lib/languages/powershell"))
+Highlight.registerLanguage("makefile",   require("highlight.js/lib/languages/makefile"))
+
+/*  load language support (Other)  */
+Highlight.registerLanguage("sql",        require("highlight.js/lib/languages/sql"))
+Highlight.registerLanguage("markdown",   require("highlight.js/lib/languages/markdown"))
+Highlight.registerLanguage("diff",       require("highlight.js/lib/languages/diff"))
 
 /*  internal API symbols  */
 const CONFIG      = Symbol("CONFIG")
