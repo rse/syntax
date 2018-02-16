@@ -157,7 +157,9 @@ class Syntax {
                 let obj
                 try {
                     obj = require("highlight.js/lib/languages/" + language)
-                } catch (ex) {
+                }
+                catch (ex) {
+                    /*  no-op  */
                 }
                 if (!obj)
                     throw new Error(`failed to load language "${language}"`)
@@ -198,7 +200,7 @@ class Syntax {
         let regexTextNonGreedy =
             new RegExp(`(?:.|\\r?\\n)+?(?=${this[CONFIG].regexAnchorOpen}|${this[CONFIG].regexMarkerOpen})`)
         let regexTextGreedy =
-            new RegExp(`(?:.|\\r?\\n)+`)
+            new RegExp("(?:.|\\r?\\n)+")
         lexer.rule(regexAnchor,        (ctx, m) => { ctx.accept("anchor", m[1]) })
         lexer.rule(regexMarker,        (ctx, m) => { ctx.accept("marker", m[1]) })
         lexer.rule(regexTextNonGreedy, (ctx, m) => { ctx.accept("text",   m[0]) })
@@ -261,7 +263,7 @@ class Syntax {
         parser.onclosetag = (name) => {
             let info = stack.pop()
             if (info.tag !== name)
-                throw new Error(`internal XML/HTML parsing error: ` +
+                throw new Error("internal XML/HTML parsing error: " +
                     `open tag <${info.tag}> does not match close tag </${name}>?!`)
             if (info.take)
                 this[MARKUP][info.type].push([ info.pos, pos ])
