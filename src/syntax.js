@@ -87,6 +87,7 @@ class Syntax {
         this[CONFIG] = {
             language:         "auto",
             cssPrefix:        "syntax-",
+            xmlPrefix:        "syntax-",
             tabReplace:       "    ",
             newlineReplace:   "\n",
             regexAnchorOpen:  "=\\(",
@@ -389,6 +390,43 @@ class Syntax {
                 tag = `<span class="${this[CONFIG].cssPrefix}${type}">`
             else
                 tag = "</span>"
+            markup += renderText(text.substring(posLast, pos)) + tag
+            posLast = pos
+        })
+        markup += renderText(text.substring(posLast))
+
+        return markup
+    }
+
+    /*  convert into XML  */
+    xml () {
+        /*  sanity check usage  */
+        if (arguments.length !== 0)
+            throw new Error("invalid number of arguments (0 expected)")
+
+        /*  merge and sequence the markup information  */
+        this._sequence()
+
+        /*  helper function for escaping characters with special meaning in HTML  */
+        const renderText = (text) =>
+            text.replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/\r?\n/g, this[CONFIG].newlineReplace)
+
+        /*  spice XML markup into the plain text  */
+        let text = this[PLAINTEXT]
+        let markup = ""
+        let posLast = 0
+        this[SEQUENCE].forEach((item) => {
+            let [ pos, kind, type, val ] = item
+            let tag
+            if (type === "anchor")
+                tag = `<${this[CONFIG].xmlPrefix}${type}>${val}</${this[CONFIG].xmlPrefix}${type}>`
+            else if (kind === "S")
+                tag = `<${this[CONFIG].xmlPrefix}${type}>`
+            else
+                tag = `</${this[CONFIG].xmlPrefix}${type}>`
             markup += renderText(text.substring(posLast, pos)) + tag
             posLast = pos
         })

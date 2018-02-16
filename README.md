@@ -45,7 +45,7 @@ usually source code. *Syntax* is based on four major design aspects:
   and anchors during output generation.
 
 - **Arbitrary Output Formats**:
-  Usually, having XML/HTML output format is sufficient, but sometimes
+  Usually, having HTML or XML output format is sufficient, but sometimes
   one also wants to support other formats and for this one needs the
   precise offset information for anchors, markings, comments, keywords
   and literals. *Syntax* supports this by internally using such an offset
@@ -149,6 +149,9 @@ Application Programming Interface (API)
    - `cssPrefix` (default: `"syntax-"`):<br/>
      The CSS class prefix used in the HTML output.
 
+   - `xmlPrefix` (default: `"syntax-"`):<br/>
+     The XML tag prefix used in the XML output.
+
    - `tabReplace` (default: `"    "`):<br/>
      The string TAB characters are replaced to in the output.
 
@@ -220,7 +223,13 @@ Application Programming Interface (API)
 
 - Method: `Syntax#html(): String`<br/>
   Apply the output markup information onto the output plain text and
-  render the result as XML/HTML based on interweaved `<span>` tags.
+  render the result as HTML, based on interweaved
+  `<span class="{cssPrefix}{type}">` and `</span>` tags.
+
+- Method: `Syntax#xml(): String`<br/>
+  Apply the output markup information onto the output plain text and
+  render the result as XML, based on interweaved
+  `<{xmlPrefix}{type}>` and `</{xmlPrefix}{type}>` tags.
 
 Language Support
 ----------------
