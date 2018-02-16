@@ -18,12 +18,12 @@
     "homepage": "https://github.com/rse/syntax",
     "bugs":     "https://github.com/rse/syntax/issues",
     "dependencies": {
-        "tokenizr":                       "~1.1.7",
+        "tokenizr":                       "~1.2.1",
         "highlight.js":                   "~9.12.0",
         "sax":                            "~1.2.4"
     },
     "devDependencies": {
-        "grunt":                          "~1.0.1",
+        "grunt":                          "~1.0.2",
         "grunt-cli":                      "~1.2.0",
         "grunt-contrib-jshint":           "~1.1.0",
         "grunt-contrib-clean":            "~1.1.0",
@@ -31,10 +31,10 @@
         "grunt-jscs":                     "~3.0.1",
         "grunt-mocha-test":               "~0.13.3",
         "grunt-eslint":                   "~20.1.0",
-        "babel-eslint":                   "~8.1.2",
-        "mocha":                          "~4.1.0",
+        "babel-eslint":                   "~8.2.1",
+        "mocha":                          "~5.0.1",
         "chai":                           "~4.1.2",
-        "browserify":                     "~15.0.0",
+        "browserify":                     "~16.1.0",
         "babelify":                       "~8.0.0",
         "babel-core":                     "~6.26.0",
         "babel-plugin-transform-runtime": "~6.23.0",
