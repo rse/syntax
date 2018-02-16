@@ -24,37 +24,18 @@
 
 /* global module: true */
 module.exports = function (grunt) {
-    grunt.loadNpmTasks("grunt-contrib-jshint")
     grunt.loadNpmTasks("grunt-contrib-clean")
     grunt.loadNpmTasks("grunt-browserify")
     grunt.loadNpmTasks("grunt-mocha-test")
     grunt.loadNpmTasks("grunt-eslint");
-    grunt.loadNpmTasks("grunt-jscs");
 
     grunt.initConfig({
         version: grunt.file.readYAML("VERSION.yml"),
-        jshint: {
-            options: {
-                jshintrc: "jshint.json"
-            },
-            "gruntfile":  [ "Gruntfile.js" ],
-            "syntax": [ "src/**/*.js", "tst/**/*.js" ]
-        },
         eslint: {
             options: {
-                configFile: "eslint.json"
+                configFile: "eslint.yaml"
             },
             "syntax": [ "src/**/*.js", "tst/**/*.js" ]
-        },
-        jscs: {
-            "syntax": {
-                options: {
-                    config: "jscs.json"
-                },
-                files: {
-                    src: [ "src/**/*.js" ]
-                }
-            }
         },
         browserify: {
             "syntax-browser": {
@@ -159,6 +140,6 @@ module.exports = function (grunt) {
         }
     })
 
-    grunt.registerTask("default", [ "jshint", "eslint", "jscs", "browserify", "clean:browserify", "mochaTest" ])
+    grunt.registerTask("default", [ "eslint", "browserify", "clean:browserify", "mochaTest" ])
 }
 
