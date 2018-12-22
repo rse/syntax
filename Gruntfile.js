@@ -51,12 +51,21 @@ module.exports = function (grunt) {
                             { from: /\$date/g,  to: "<%= version.date  %>" }
                         ]}],
                         [ "babelify", {
-                            presets: [ "es2015" ],
-                            plugins: [ [ "transform-runtime", { "polyfill": true, "regenerator": false } ] ]
-                        } ]
+                            presets: [
+                                [ "@babel/preset-env", {
+                                    "targets": {
+                                        "browsers": "last 8 versions, > 1%, ie 11"
+                                    }
+                                } ]
+                            ],
+                            plugins: [ [ "@babel/transform-runtime", {
+                                "helpers":     false,
+                                "regenerator": false
+                            } ] ]
+                        } ],
+                        [ "uglifyify", { sourceMap: false, global: true } ]
                     ],
                     plugin: [
-                        [ "minifyify" ],
                         [ "browserify-derequire" ],
                         [ "browserify-header" ]
                     ],
@@ -79,8 +88,17 @@ module.exports = function (grunt) {
                             { from: /\$date/g,  to: "<%= version.date  %>" }
                         ]}],
                         [ "babelify", {
-                            presets: [ "es2015" ],
-                            plugins: [ [ "transform-runtime", { "polyfill": true, "regenerator": false } ] ]
+                            presets: [
+                                [ "@babel/preset-env", {
+                                    "targets": {
+                                        "node": "8.0.0"
+                                    }
+                                } ]
+                            ],
+                            plugins: [ [ "@babel/transform-runtime", {
+                                "helpers":     false,
+                                "regenerator": false
+                            } ] ]
                         } ]
                     ],
                     plugin: [
