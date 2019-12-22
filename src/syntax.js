@@ -133,7 +133,7 @@ class Syntax {
             throw new Error("invalid configuration argument (object expected)")
 
         /*  remember old language  */
-        let languageOld = this[CONFIG].language
+        const languageOld = this[CONFIG].language
 
         /*  iterate over all configuration options  */
         Object.keys(config).forEach((option) => {
@@ -146,10 +146,10 @@ class Syntax {
         })
 
         /*  try to auto-load new language  */
-        let language = this[CONFIG].language
+        const language = this[CONFIG].language
         if (   language !== languageOld
             && language.match(/^(?:auto|none)$/) === null) {
-            let found = Highlight.getLanguage(language)
+            const found = Highlight.getLanguage(language)
             if (!found) {
                 /* global global: true */
                 if (typeof global.window === "object")
@@ -192,14 +192,14 @@ class Syntax {
     _extract () {
         /*  extract explicit language-unspecific anchor/marker
             (beforehand to make text valid language syntax again)  */
-        let lexer = new Tokenizr()
-        let regexAnchor =
+        const lexer = new Tokenizr()
+        const regexAnchor =
             new RegExp(`${this[CONFIG].regexAnchorOpen}(\\d+)${this[CONFIG].regexAnchorClose}`)
-        let regexMarker =
+        const regexMarker =
             new RegExp(`${this[CONFIG].regexMarkerOpen}(.+?)${this[CONFIG].regexMarkerClose}`)
-        let regexTextNonGreedy =
+        const regexTextNonGreedy =
             new RegExp(`(?:.|\\r?\\n)+?(?=${this[CONFIG].regexAnchorOpen}|${this[CONFIG].regexMarkerOpen})`)
-        let regexTextGreedy =
+        const regexTextGreedy =
             new RegExp("(?:.|\\r?\\n)+")
         lexer.rule(regexAnchor,        (ctx, m) => { ctx.accept("anchor", m[1]) })
         lexer.rule(regexMarker,        (ctx, m) => { ctx.accept("marker", m[1]) })
@@ -239,8 +239,8 @@ class Syntax {
 
         /*  pass 2: parse XML/HTML to determine highlighting positions  */
         let pos = 0
-        let stack = []
-        let parser = SAX.parser(true, {})
+        const stack = []
+        const parser = SAX.parser(true, {})
         parser.onerror = (err) => {
             throw new Error(`internal XML/HTML parsing error: ${err}?!`)
         }
@@ -261,7 +261,7 @@ class Syntax {
             pos += text.length
         }
         parser.onclosetag = (name) => {
-            let info = stack.pop()
+            const info = stack.pop()
             if (info.tag !== name)
                 throw new Error("internal XML/HTML parsing error: " +
                     `open tag <${info.tag}> does not match close tag </${name}>?!`)
@@ -306,7 +306,7 @@ class Syntax {
             (potentially strictly nested, but never overlapping)  */
         let list = []
         const insert = (type) => {
-            let items = this[MARKUP][type]
+            const items = this[MARKUP][type]
             items.forEach((item) => {
                 list.push([ item[0], "S", type ])
                 list.push([ item[1], "E", type ])
@@ -321,7 +321,7 @@ class Syntax {
 
         /*  iterate over all markers...  */
         this[MARKUP].marker.forEach((marker) => {
-            let [ S, E ] = marker
+            const [ S, E ] = marker
 
             /*  find position for marker start  */
             let i
@@ -355,7 +355,7 @@ class Syntax {
 
         /*  iterate over all anchors...  */
         Object.keys(this[MARKUP].anchor).forEach((anchor) => {
-            let pos = this[MARKUP].anchor[anchor]
+            const pos = this[MARKUP].anchor[anchor]
 
             /*  find position for anchor start  */
             let i
@@ -388,11 +388,11 @@ class Syntax {
                 .replace(/\r?\n/g, this[CONFIG].newlineReplace)
 
         /*  spice HTML markup into the plain text  */
-        let text = this[PLAINTEXT]
+        const text = this[PLAINTEXT]
         let markup = ""
         let posLast = 0
         this[SEQUENCE].forEach((item) => {
-            let [ pos, kind, type, val ] = item
+            const [ pos, kind, type, val ] = item
             let tag
             if (type === "anchor")
                 tag = `<span class="${this[CONFIG].cssPrefix}${type} ` +
@@ -426,11 +426,11 @@ class Syntax {
                 .replace(/\r?\n/g, this[CONFIG].newlineReplace)
 
         /*  spice XML markup into the plain text  */
-        let text = this[PLAINTEXT]
+        const text = this[PLAINTEXT]
         let markup = ""
         let posLast = 0
         this[SEQUENCE].forEach((item) => {
-            let [ pos, kind, type, val ] = item
+            const [ pos, kind, type, val ] = item
             let tag
             if (type === "anchor")
                 tag = `<${this[CONFIG].xmlPrefix}${type}>${val}</${this[CONFIG].xmlPrefix}${type}>`
