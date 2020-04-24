@@ -90,7 +90,7 @@ class Syntax {
         }
     }
 
-    /*  construct the PAI class  */
+    /*  construct the API class  */
     constructor (config = {}) {
         /*  predefine valid options  */
         this[CONFIG] = {
