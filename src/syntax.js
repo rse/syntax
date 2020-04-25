@@ -24,7 +24,7 @@
 
 /*  external requirements  */
 import Tokenizr   from "tokenizr"
-import Highlight  from "highlight.js/lib/highlight"
+import Highlight  from "highlight.js/lib/core"
 import SAX        from "sax"
 
 /*  load language support (Web)  */
@@ -39,10 +39,11 @@ Highlight.registerLanguage("yaml",       require("highlight.js/lib/languages/yam
 Highlight.registerLanguage("ini",        require("highlight.js/lib/languages/ini"))
 
 /*  load language support (Programming Languages)  */
+Highlight.registerLanguage("c-like",     require("highlight.js/lib/languages/c-like"))
 Highlight.registerLanguage("cpp",        require("highlight.js/lib/languages/cpp"))
 Highlight.registerLanguage("objectivec", require("highlight.js/lib/languages/objectivec"))
 Highlight.registerLanguage("swift",      require("highlight.js/lib/languages/swift"))
-Highlight.registerLanguage("cs",         require("highlight.js/lib/languages/cs"))
+Highlight.registerLanguage("csharp",     require("highlight.js/lib/languages/csharp"))
 Highlight.registerLanguage("fsharp",     require("highlight.js/lib/languages/fsharp"))
 Highlight.registerLanguage("go",         require("highlight.js/lib/languages/go"))
 Highlight.registerLanguage("java",       require("highlight.js/lib/languages/java"))
