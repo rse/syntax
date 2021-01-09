@@ -28,11 +28,11 @@
 /* global require: false */
 /* jshint -W030: false */
 
-var Syntax = require("../lib/syntax.node.js")
+const Syntax = require("../lib/syntax.node.js")
 
 describe("Syntax Library", function () {
     it("should expose its official API", function () {
-        var syntax = new Syntax()
+        const syntax = new Syntax()
         expect(syntax).to.be.a("object")
         expect(syntax).to.respondTo("config")
         expect(syntax).to.respondTo("richtext")
@@ -41,15 +41,15 @@ describe("Syntax Library", function () {
         expect(syntax).to.respondTo("html")
     })
     it("some syntax highlighting functionality", function () {
-        var syntax = new Syntax({ language: "javascript" })
-        var text =
+        const syntax = new Syntax({ language: "javascript" })
+        const text =
             "/* comment */\n" +
             "// comment\n" +
             "var foo = ={function foo}==(1)= (bar, quux) {\n" +
             "    return (/regexp/ + true + \"function \\\"foo\\\" bar\" + bar < 42.0)\n" +
             "}\n"
         syntax.richtext(text)
-        var html = syntax.html()
+        const html = syntax.html()
         expect(html).to.be.equal(
             "<span class=\"syntax-comment\">/* comment */</span>\n" +
             "<span class=\"syntax-comment\">// comment</span>\n" +

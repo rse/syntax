@@ -201,7 +201,7 @@ class Syntax {
         const regexTextNonGreedy =
             new RegExp(`(?:.|\\r?\\n)+?(?=${this[CONFIG].regexAnchorOpen}|${this[CONFIG].regexMarkerOpen})`)
         const regexTextGreedy =
-            new RegExp("(?:.|\\r?\\n)+")
+            /(?:.|\r?\n)+/
         lexer.rule(regexAnchor,        (ctx, m) => { ctx.accept("anchor", m[1]) })
         lexer.rule(regexMarker,        (ctx, m) => { ctx.accept("marker", m[1]) })
         lexer.rule(regexTextNonGreedy, (ctx, m) => { ctx.accept("text",   m[0]) })
